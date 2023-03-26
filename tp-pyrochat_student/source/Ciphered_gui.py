@@ -19,7 +19,7 @@ kdf = PBKDF2HMAC(
     algorithm=hashes.SHA256(),
     length=16, #nombre d'octet
     salt=salt,
-    iterations=30000, #itérations AES
+    iterations=25000, #itérations AES
 )
 
 # Import AES 
