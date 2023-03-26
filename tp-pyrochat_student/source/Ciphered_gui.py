@@ -124,11 +124,16 @@ class CipheredGUI(BasicGUI):
     def recv(self) -> None:
         if self._callback is not None:
             for user, message in self._callback.get():
+                 #essai de déchiffrer le message
+                try:
                     #Déchiffrer le message
                     message = self.decrypt(message)
                     #Afficher le message déchiffré
                     self.update_text_screen(f"{user} : {message.decode()}")
-
+                except:
+                    #Afficher le message chiffré dans les logs
+                    self._log.error(f"Decrypting error: {message}")
+            self._callback.clear()
 
 
 if __name__ == "__main__":
