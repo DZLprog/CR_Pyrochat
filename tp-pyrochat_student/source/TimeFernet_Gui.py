@@ -5,7 +5,7 @@ from cryptography.fernet import InvalidToken
 
 
 class TimeFernetGui(fernetGui):
-    """A class that extends fernetGui and adds time-based encryption and decryption."""
+     #TimeFernetGui class that extends fernetGui and adds time-based encryption and decryption
 
     def __init__(self) -> None:
         super().__init__()
@@ -31,7 +31,7 @@ class TimeFernetGui(fernetGui):
         current_time = int(time.time())     # Get the current time to check the TTL.
 
         try:
-            plaintext = self._fernet.decrypt_at_time(encrypted_data, 15, current_time)  # Decrypt the message with time verification.
+            plaintext = self._fernet.decrypt_at_time(encrypted_data,25,current_time)  # Decrypt the message with time verification.
             return str(plaintext, "utf8")
         except InvalidToken:
             self._log.warning(InvalidToken.__name__)
