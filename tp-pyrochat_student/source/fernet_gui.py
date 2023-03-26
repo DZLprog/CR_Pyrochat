@@ -53,7 +53,7 @@ class fernetGui(CipheredGUI):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    # Instanciate the class, create context and related stuff, run the main loop
+    
     client = fernetGui()
     client.create()
     client.loop()
