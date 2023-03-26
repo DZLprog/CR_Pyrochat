@@ -31,7 +31,7 @@ from cryptography.hazmat.backends import default_backend
 
 import base64
 
-# Surcharger le constructeur avec self
+# Surcharger avec self
 class CipheredGUI(BasicGUI):
     def __init__(self) -> None:
         super().__init__()
