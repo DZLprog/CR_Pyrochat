@@ -12,39 +12,32 @@ class fernetGui(CipheredGUI):
         self._fernet = None
 
     def encrypt(self, plaintext):
-        """ Encrypts plaintext with Fernet encryption algorithm.
+        #Encrypts plaintext with Fernet encryption algorithm.
 
-        Args:
-            plaintext (str): The string message to be encrypted.
+        #Args: plaintext (str): The string message to be encrypted.
 
-        Returns:
-            bytes: The encrypted message in bytes.
-        """
+        #Returns: bytes: The encrypted message in bytes.
+
         cipher = self._fernet.encrypt(bytes(plaintext, "utf8"))
         return cipher
     
     def decrypt(self, data):
-        """ Decrypts Fernet encrypted data.
+        #Decrypts Fernet encrypted data.
 
-        Args:
-            data (bytes): The encrypted data in bytes.
+        #Args: data (bytes): The encrypted data in bytes.
 
-        Returns:
-            str: The decrypted message in string format.
-        """
+        #Returns: str: The decrypted message in string format.
         encrypted_data = b64decode(data)                 # Decode base64 encrypted data
         plaintext = self._fernet.decrypt(encrypted_data) # Decrypt message
         return str(plaintext, "utf8")
 
 
     def run_chat(self, sender, app_data) -> None:
-        """Overrides CipheredGUI method.
-        Runs the chat application, sets up the encryption key with user input password.
+        #Overrides CipheredGUI method.
+        #Runs the chat application, sets up the encryption key with user input password.
 
-        Args:
-            sender (int): Sender ID.
-            app_data (Any): Application data.
-        """
+        #Args:sender (int): Sender ID /app_data (Any): Application data
+        
         super().run_chat(sender, app_data)
 
         passwd = dpg.get_value("connection_password")   # Get password from user input
