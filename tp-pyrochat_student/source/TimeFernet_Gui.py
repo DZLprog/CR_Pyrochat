@@ -31,7 +31,7 @@ class TimeFernetGui(fernetGui):
         current_time = int(time.time())     # Get the current time to check the TTL.
 
         try:
-            plaintext = self._fernet.decrypt_at_time(encrypted_data,25,current_time)  # Decrypt the message with time verification.
+            plaintext = self._fernet.decrypt_at_time(encrypted_data,30,current_time)  # Decrypt the message with time verification.
             return str(plaintext, "utf8")
         except InvalidToken:
             self._log.warning(InvalidToken.__name__)
